@@ -6,4 +6,22 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        nums.sort()
+        start,mid=0,0
+        end = len(nums)-1
+
+        while mid <= end:
+            match nums[mid]:
+                case 0:
+                    self.swap(nums, start, mid)
+                    start += 1
+                    mid += 1
+                case 1:
+                    mid += 1
+                case 2:
+                    self.swap(nums, mid, end)
+                    end -= 1
+    
+    def swap(self, nums: List[int], pos1: int, pos2: int) -> None:
+        temp = nums[pos1]
+        nums[pos1] = nums[pos2]
+        nums[pos2] = temp
